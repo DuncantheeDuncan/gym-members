@@ -1,0 +1,141 @@
+
+
+  /* COLORS ARE CHNANGED FOR TESTING REASONS */
+
+  @media only screen and (min-width: 768px) {
+    /* tablets and desktop */
+
+    /* .container {
+        margin-left: 1px;
+        margin-right: 1px;
+        padding: 1%;
+        border: 1px solid #df0808;
+}
+#Logo{
+	width: 100%;
+} */
+
+}
+
+@media only screen and (max-width: 767px) {
+    /* phones */
+    /* .container {
+        margin-left: 1px;
+        margin-right: 1px;
+        padding: 1%;
+        border: 1px solid #680db3;
+}
+#Logo{
+	width: 100%;
+} */
+
+}
+
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+
+    /* portrait phones */
+    /* .container {
+        margin-left: 1px;
+        margin-right: 1px;
+        padding: 1%;
+        border: 1px solid #e9b013;
+}
+#Logo{
+	width: 100%;
+} */
+
+}
+
+
+#logo_container{
+	width: 100%;
+	padding-bottom: 20px;
+}
+#Logo{
+	width: 100%;
+}
+.main_div{
+	text-align: center;
+	font-size: 20px;
+	font-family: all;
+	margin-left: 20px;
+	margin-right: 20px;
+
+}
+
+h2 {
+	margin-bottom: 50px;
+	color: rgb(11, 17, 49);
+	font-style: italic;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+#backlink{
+	height: 20px;
+	padding-top:20px;
+	padding-bottom: 20px;
+	margin: 20px;
+	text-align: right;
+
+        }
+#input_box{
+	width: 50%;
+	height: 50px;
+	border: 2px solid black;
+	font-size: 20px;
+}
+#lOGOUT{
+	background-color: lightgrey;
+	padding: 20px;
+	text-decoration: none;
+	margin-top: 40px;
+}
+.Lecture_img{
+	width: 210px;
+	height: 210px;
+	border: 2px solid black;
+	border-radius: 150px;
+
+}
+.photo{
+	width:auto;
+	height: 100%;
+}
+ button{
+	margin-top:50px;
+	padding: 20px;
+	width: 50%;
+	background-color: rgb(11, 19, 46);
+	font-variant-caps: all-petite-caps;
+	font-weight: bolder;
+	font-size: 22px;
+	color:#fff ;
+	border-radius: 9px;
+}
+
+#Timetable{
+	width: 100%;
+
+}
+#Timetable tr td{
+	width: 50%;
+	border-top: 2px solid black;
+
+}
+
+#avail_students{
+	width: 100%;
+	text-align: center;
+	font-size:14px;
+}
+a:visited{
+	color: rgb(10, 10, 10);
+}
+a{
+	width: 100px;
+	text-decoration: none;
+}
+
+table{
+	text-align: left;
+}

@@ -1,0 +1,12 @@
+
+--
+-- CREATE TABLE TABLEMEMBERS(
+--            MEMBERID integer not null primary key,
+--            NAME_ VARCHAR(25),
+--            SURNAME VARCHAR(25),
+--            ID integer,
+--            CONTACT integer,
+--            DATEJOINED DATE NOT NULL DEFAULT CURRENT_DATE,
+--            MEMEMBERTYPE VARCHAR(15)
+--
+-- );
