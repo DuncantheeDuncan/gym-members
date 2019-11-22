@@ -54,15 +54,15 @@
                 <li id="li_9" >
                     <label class="description" for="element_9">DATE OF BIRTH</label>
                     <span>
-			<input id="element_9_1" name="element_9_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input onkeypress="javascript:return isNumber(event)" id="element_9_1" name="element_9_1" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_9_1">MM</label>
 		</span>
                     <span>
-			<input id="element_9_2" name="element_9_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+			<input onkeypress="javascript:return isNumber(event)"  id="element_9_2" name="element_9_2" class="element text" size="2" maxlength="2" value="" type="text"> /
 			<label for="element_9_2">DD</label>
 		</span>
                     <span>
-	 		<input id="element_9_3" name="element_9_3" class="element text" size="4" maxlength="4" value="" type="text">
+	 		<input onkeypress="javascript:return isNumber(event)" id="element_9_3" name="element_9_3" class="element text" size="4" maxlength="4" value="" type="text">
 			<label for="element_9_3">YYYY</label>
 		</span>
 
@@ -123,39 +123,6 @@
 
 
 
-<!--                DATE JOINED-->
-
-                <li id="li_99" >
-                    <label class="description" for="element_99">TODAY'S DATE </label>
-                    <span>
-			<input id="element_99_1" name="element_99_1" class="element text" size="2" maxlength="2" value="" type="text"> /
-			<label for="element_99_1">MM</label>
-		</span>
-                    <span>
-			<input id="element_99_2" name="element_99_2" class="element text" size="2" maxlength="2" value="" type="text"> /
-			<label for="element_99_2">DD</label>
-		</span>
-                    <span>
-	 		<input id="element_99_3" name="element_99_3" class="element text" size="4" maxlength="4" value="" type="text">
-			<label for="element_99_3">YYYY</label>
-		</span>
-
-                    <span id="calendar_99">
-			<img id="cal_img_99" class="datepicker" src="images/calendar.gif" alt="Pick a date.">
-                         <p class="guidelines" id="guide_14"><small>JOINING DATE</small></p>
-		</span>
-                    <script type="text/javascript">
-			Calendar.setup({
-			inputField	 : "element_99_3",
-			baseField    : "element_99",
-			displayArea  : "calendar_99",
-			button		 : "cal_img_99",
-			ifFormat	 : "%B %e, %Y",
-			onSelect	 : selectDate
-			});
-		</script>
-
-                </li>
 
 
 
@@ -176,96 +143,110 @@
                     <p class="guidelines" id="guide_14"><small> SELECT YOUR MEMBERSHIP TYPE CATEGORY</small></p>
                 </li>
 
-                <!--    &lt;!&ndash; title &ndash;&gt;&ndash;&gt;-->
-                <!-- gender -->
-<!--                <li id="li_15">-->
-<!--                    <label class="description" for="element_15">GENDER </label>-->
-<!--                    <span>-->
-<!--                    <input id="element_15_1" name="element_15" class="element radio" type="radio" value="MALE"/>-->
-<!--                    <label class="choice" for="element_15_1">MALE</label>-->
-<!--                    <input id="element_15_2" name="element_15" class="element radio" type="radio" value="FEMALE"/>-->
-<!--                    <label class="choice" for="element_15_2">FEMALE</label>-->
-<!--                    <p class="guidelines" id="guide_14"><small>SELECT YOUR GENDER</small></p>-->
-<!--                  </span>-->
-<!--                </li>-->
-
-
-                <!--                &lt;!&ndash; phone number &ndash;&gt;-->
-
-                <!--                &lt;!&ndash; email address &ndash;&gt;-->
-<!--                <li id="li_3">-->
-<!--                    <label class="description" for="element_3">E-MAIL ADDRESS </label>-->
-<!--                    <span>-->
-<!--                                <input id="element_14_1" name="element_14_10" class="element text" maxlength="255"-->
-<!--                                       size="14" value=""/>-->
-<!--                                <label>EG - xxx@something.com</label>-->
-<!--                                <p class="guidelines" id="guide_14"><small>ENTER YOUR EMAIL ADDRESS </small></p>-->
-<!--                              </span>-->
-<!--                </li>-->
-
-
-
                 <li class="section_break"></li>
                 <!--                            end of step did-->
             </div>
 
-            <!-- parent / spouse -->
-<!--            <div class="next_tab">-->
 
-<!--                &lt;!&ndash;                &lt;!&ndash; phone number &ndash;&gt;&ndash;&gt;-->
-<!--                <li id="li_10">-->
-<!--                    <label class="description" for="element_10">PHONE: (PARENT/ GUARDIAN/SPOUSE)</label>-->
-<!--                    <span>-->
-<!--                      <input onkeypress="javascript:return isNumber(event)" id="element_10_1" name="element_10_01"-->
-<!--                             class="element text" size="3" maxlength="3" value="" type="text">-->
-<!--                      <label for="element_CommandArgsThree10_1">(###)</label>-->
-<!--                    </span>-->
-<!--                    <span>-->
-<!--                      <input onkeypress="javascript:return isNumber(event)" id="element_10_2" name="element_10_02"-->
-<!--                             class="element text" size="3" maxlength="3" value="" type="text">-->
-<!--                      <label for="element_10_2">###</label>-->
-<!--                    </span>-->
-<!--                    <span>-->
-<!--                       <input onkeypress="javascript:return isNumber(event)" id="element_10_3" name="element_10_03"-->
-<!--                              class="element text" size="4" maxlength="4" value=""-->
-<!--                              type="text">-->
-<!--                      <label for="element_10_3">####</label>-->
-<!--                    </span>-->
-<!--                    <p class="guidelines" id="guide_14"><small>CELL PHONE NUMBER</small></p>-->
+            <!-- PAYMENT -->
+            <div class="next_tab">
 
-<!--                </li>-->
+<!--AMOUNT-->
+                <li id="li_6" >
+                <label class="description" for="element_6">Price </label>
+                <span class="symbol">R</span>
+                <span>
+			<input onkeypress="javascript:return isNumber(event)" id="element_6_1" name="element_6_1" class="element text currency" size="10" value="" type="text" /> .
+			<label for="element_6_1">RANDS</label>
+		</span>
+                <span>
+			<input onkeypress="javascript:return isNumber(event)" id="element_6_2" name="element_6_2" class="element text" size="2" maxlength="2" value="" type="text" />
+			<label for="element_6_2">CENTS</label>
+		</span>
 
-                <!--                &lt;!&ndash; email address &ndash;&gt;-->
-<!--                <li id="li_3">-->
-<!--                    <label class="description" for="element_3">E-MAIL: ADDRESS (PARENT/ GUARDIAN/SPOUSE)</label>-->
-<!--                    <span>-->
-<!--                            <input id="element_14_1" name="element_14_120" class="element text" maxlength="255"-->
-<!--                                   size="14" value=""/>-->
-<!--                            <label>EG - XXX@SOMETHING.com</label>-->
-<!--                            <p class="guidelines" id="guide_14"><small>ENTER YOUR EMAIL ADDRESS </small></p>-->
-<!--                          </span>-->
-<!--                </li>-->
+            </li>
+
+                <!--                DATE PAID-->
+
+                                <li id="li_99" >
+                                    <label class="description" for="element_99">TODAY'S DATE </label>
+                                    <span>
+                			<input onkeypress="javascript:return isNumber(event)" id="element_99_1" name="element_99_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+                			<label for="element_99_1">MM</label>
+                		</span>
+                                    <span>
+                			<input onkeypress="javascript:return isNumber(event)" id="element_99_2" name="element_99_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+                			<label for="element_99_2">DD</label>
+                		</span>
+                                    <span>
+                	 		<input  onkeypress="javascript:return isNumber(event)" id="element_99_3" name="element_99_3" class="element text" size="4" maxlength="4" value="" type="text">
+                			<label for="element_99_3">YYYY</label>
+                		</span>
+
+                                    <span id="calendar_99">
+                			<img id="cal_img_99" class="datepicker" src="images/calendar.gif" alt="Pick a date.">
+                                         <p class="guidelines" id="guide_14"><small>JOINING DATE</small></p>
+                		</span>
+                                    <script type="text/javascript">
+                			Calendar.setup({
+                			inputField	 : "element_99_3",
+                			baseField    : "element_99",
+                			displayArea  : "calendar_99",
+                			button		 : "cal_img_99",
+                			ifFormat	 : "%B %e, %Y",
+                			onSelect	 : selectDate
+                			});
+                		</script>
+
+                                </li>
 
 
 
-<!--                <li class="section_break"></li>-->
+                <li class="section_break"></li>
 
-<!--            </div>-->
+            </div>
 
 
-<!--            <div class="next_tab">-->
+            <div class="next_tab">
 
-<!--                <h3>YEAR OF STUDY</h3>-->
-<!--                <li class="section_break"></li>-->
+                <table id="myTable">
+                    <tr class="header">
+                        <th style="width:auto;">Student Number</th>
+                        <th style="width:auto;">Name</th>
+                        <th style="width:auto;">Surname</th>
+                        <th style="width:auto;">Percentage %</th>
+                    </tr>
+                <tr>
 
-<!--                &lt;!&ndash;                            end of step did&ndash;&gt;-->
-<!--            </div>-->
+
+                    {{#each list}}
+                        <tr>
+                            <td>
+                                <label class="mains"><a class="main" href="/store/{{this}}"><span class="geekmark"></span></a></label>
+                                {{this}}
+                            </td>
+                            <td>
+                                <label class="mains"><a class="main" href="/store/{{this}}"><span class="geekmark"></span></a></label>
+                                {{this}}
+                            </td>
+                            <td>
+                                <label class="mains"><a class="main" href="/store/{{this}}"><span class="geekmark"></span></a></label>
+                                {{this}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>
+
+                <li class="section_break"></li>
+
+                <!--                            end of step did-->
+            </div>
 
             <!-- Circles which indicates the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
                 <span class="step"></span>
-<!--                <span class="step"></span>-->
-<!--                <span class="step"></span>-->
+                <span class="step"></span>
+                <span class="step"></span>
                 <!-- <span class="step"></span> -->
             </div>
 
@@ -325,42 +306,7 @@
                 {{/each}}
 
             </ul>
-            <!--            <ul>-->
-                <!--                {{#each list_of_street_address_for_students}}-->
-            <!--                    <li>STREET ADDRESS: {{this}}</li>-->
-                <!--                {{/each}}-->
 
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_suburb_address_for_students}}-->
-            <!--                    <li>SUBURB: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_city_address_for_students}}-->
-            <!--                    <li>CITY: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_provinc_address_for_student}}-->
-            <!--                    <li>PROVINCE: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_zip_codes_for_students}}-->
-            <!--                    <li>ZIP CODE: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_countries_address_for_students}}-->
-            <!--                    <li>ZIP COUNTRY: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
 
             {{add_student_number}}
             {{add_student_name}}
@@ -370,12 +316,6 @@
             {{add_student_gender}}
             {{add_student_cellphone_number}}
             {{add_student_email}}
-            <!--            {{add_student_street_address}}-->
-            <!--            {{add_student_suburb_address}}-->
-            <!--            {{add_student_city_address}}-->
-            <!--            {{add_student_province_address}}-->
-            <!--            {{add_student_zip_code}}-->
-            <!--            {{add_student_country_address}}-->
 
 
             <ul>
@@ -390,36 +330,9 @@
                 {{/each}}
 
             </ul>
-            <!--            <ul>-->
-                <!--                {{#each list_of_parents_suburb_address}}-->
-            <!--                    <li>PARENTS SUBURB: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_parents_city_address}}-->
-            <!--                    <li>PARENTS CITY: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_parents_province_address}}-->
-            <!--                    <li>PARENTS PROVINCE: {{this}}</li>-->
-                <!--                {{/each}}-->
-
-            <!--            </ul>-->
-            <!--            <ul>-->
-                <!--                {{#each list_of_parents_zip_code_address}}-->
-                <!--                    <li>PARENTS ZIP CODE: {{this}}</li>{{/each}}-->
-            <!--            </ul>-->
 
             {{add_parent_number}}
             {{add_parents_email_address}}
-            <!--            {{add_parents_street_address}}-->
-            <!--            {{add_parents_suburb_address}}-->
-            <!--            {{add_parents_city_address}}-->
-            <!--            {{add_parents_province_address}}-->
-            <!--            {{add_parents_zip_code_address}}-->
 
 
 
