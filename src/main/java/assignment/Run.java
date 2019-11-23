@@ -1,3 +1,4 @@
+package assignment;
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 

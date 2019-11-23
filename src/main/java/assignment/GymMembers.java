@@ -1,3 +1,4 @@
+package assignment;
 import spark.ModelAndView;
 import spark.Request;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -39,11 +40,16 @@ HashMap<String , Object> gymMap = new HashMap<>();
             .append(")")
             .toString();
 
-    private static final String SQL_INSERT_TABLEMEMBER = "INSERT INTO TABLEMEMBER ( NAME_, SURNAME, ID_, CONTACT, DATEOFBIRTH, MEMEMBERTYPE ) VALUES (?,?,?,?,?,?)";
-    private static final String SQL_INSERT_TABLEPAYMENT = "INSERT INTO TABLEPAYMENT ( AMOUNT, PAYMENTDATE ) VALUES (?,?)";
 
-    private static final String SQL_TABLE_DROP_TABLEMEMBER = "DROP TABLE IF EXISTS TABLEMEMBER, TABLEPAYMENT CASCADE ";
-    private static final String SQL_UPDATE= "UPDATEe TABLEMEMBER";
+     final String SQL_INSERT_TABLEMEMBER = "INSERT INTO TABLEMEMBER ( NAME_, SURNAME, ID_, CONTACT, DATEOFBIRTH, MEMEMBERTYPE ) VALUES (?,?,?,?,?,?)";
+     final String SQL_INSERT_TABLEPAYMENT = "INSERT INTO TABLEPAYMENT ( AMOUNT, PAYMENTDATE ) VALUES (?,?)";
+
+     final String SQL_TABLE_DROP_TABLEMEMBER = "DROP TABLE IF EXISTS TABLEMEMBER, TABLEPAYMENT CASCADE ";
+     final String SQL_UPDATE= "UPDATEe TABLEMEMBER";
+
+final String GREET_DATABASE_URL = "jdbc:h2:~/GymMembers";
+     PreparedStatement inserDetailsToTheDbPreparedStatement;
+
 //
 //    UPDATE product
 //    SET net_price = price - price * discount
@@ -58,20 +64,18 @@ HashMap<String , Object> gymMap = new HashMap<>();
         get("/details", (req, res) -> {
 
             HashMap<String , Object> gymMap = new HashMap<>();
-
-            try (Connection conn = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/gymdb",
-                    "coder",
-                    "pg123");
+            
+            try (Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") /* Connection conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/gymdb","coder","pg123")*/;
                  Statement statement = conn.createStatement();
              PreparedStatement psinsert = conn.prepareStatement(SQL_INSERT_TABLEMEMBER);
                  PreparedStatement psinsert2 = conn.prepareStatement(SQL_INSERT_TABLEPAYMENT);
              PreparedStatement psupdate = conn.prepareStatement("SQL_UPDATE")){
+                
 
                 if (conn != null){
 
                     System.out.println("Connected");
-                }else {
+               }else {
                     System.out.println("Failed to make connection to the DATABASE!");
                 }
 
@@ -140,14 +144,12 @@ HashMap<String , Object> gymMap = new HashMap<>();
             int payment_date = Integer.parseInt(add_payment_date);
             int amount = Integer.parseInt(add_amount);
 
-            try  (Connection conn = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/gymdb",
-                    "coder",
-                    "pg123");
+            Class.forName("org.h2.Driver");// reg jdbc drive
+            try  (Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") /* Connection conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/gymdb","coder","pg123")*/;
                   Statement statement = conn.createStatement();
                   PreparedStatement psinsert = conn.prepareStatement(SQL_INSERT_TABLEMEMBER);
                   PreparedStatement psinsert2 = conn.prepareStatement(SQL_INSERT_TABLEPAYMENT);
-                  PreparedStatement psupdate = conn.prepareStatement(SQL_UPDATE)){
+                  PreparedStatement psupdate = conn.prepareStatement("SQL_UPDATE")){
 
                 if (conn != null){
                     System.out.println("Connected");
@@ -155,10 +157,13 @@ HashMap<String , Object> gymMap = new HashMap<>();
                     System.out.println("Failed to make connection to the DATABASE!");
                 }
 
-                        statement.execute(SQL_TABLE_DROP_TABLEMEMBER); //JUST TO CLEAN THE DATABASE
+
+                        // statement.execute(SQL_TABLE_DROP_TABLEMEMBER); //JUST TO CLEAN THE DATABASE
 //                        statement.execute(SQL_TABLE_DROP_TABLEPAYMENT);
-                        statement.execute(SQL_TABLE_CREATE_TABLEMEMBER);
-                        statement.execute(SQL_TABLE_CREATE_TABLEPAYMENT);
+                        // statement.execute(SQL_TABLE_CREATE_TABLEMEMBER);
+                        // statement.execute(SQL_TABLE_CREATE_TABLEPAYMENT);
+
+                       
 
                 psinsert.setString(1, add_name);
                 psinsert.setString(2, add_surname);
