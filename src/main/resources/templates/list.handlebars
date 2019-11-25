@@ -72,31 +72,118 @@
 
                 <table id="myTable">
                     <tr class="header">
-                        <th style="width:auto;">Student Number</th>
+                        <th style="width:auto;">Order ID</th>
+                        <th style="width:auto;">ID</th>
                         <th style="width:auto;">Name</th>
                         <th style="width:auto;">Surname</th>
-                        <th style="width:auto;">Percentage %</th>
+                        <th style="width:auto;">DOB</th>
+                        <th style="width:auto;">AGE</th>
+                        <th style="width:auto;">Amount Due</th>
+                        <th style="width:auto;">Amount Paid</th>
+                        <th style="width:auto;">Balance</th>
                     </tr>
-                <tr>
 
 
-                    {{#each list}}
-                        <tr>
-                            <td>
-                                <label class="mains"><a class="main" href="/studentList/{{this}}"><span class="geekmark"></span></a></label>
-                                {{this}}
-                            </td>
-                            <td>
-                                <label class="mains"><a class="main" href="/studentList/{{this}}"><span class="geekmark"></span></a></label>
-                                {{this}}
-                            </td>
-                            <td>
-                                <label class="mains"><a class="main" href="/studentList/{{this}}"><span class="geekmark"></span></a></label>
-                                {{this}}
-                            </td>
-                        </tr>
+                   <tr>
 
-                    {{/each}}
+                       <td>
+                           {{#each orderIds}}
+                           <ul>
+                                   <li>{{this}}</li>
+                           </ul>
+                           {{/each}}
+                       </td>
+
+                       <td>
+                           <ul>
+                               {{#each idNumbers}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+                           <ul>
+                               {{#each names}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+
+                           <ul>
+                               {{#each surnameNames}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+
+                           <ul>
+                               {{#each dateofbirth}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+
+                           <ul>
+                               {{#each age}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+
+                           <ul>
+                               {{#each Amount_due}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+
+                           <ul>
+                               {{#each Amount_paid}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                       <td>
+
+                           <ul>
+                               {{#each balance}}
+                                   <li>{{this}}</li>
+                               {{/each}}
+                           </ul>
+                       </td>
+                   </tr>
+
+
+<!--                    {{#each orderIds}}-->
+<!--                        <tr>-->
+<!--                            <td>-->
+<!--                                <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
+<!--                                {{this}}-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                    {{/each}}-->
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
+<!--                            {{this}}-->
+<!--                        </td>-->
+
+
+
+                    <!--                            <td>-->
+                    <!--                                <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
+                    <!--                                {{this}}-->
+                    <!--                            </td>-->
+                    <!--                            <td>-->
+                    <!--                                <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
+                    <!--                                {{this}}-->
+                    <!--                            </td>-->
+
 
 
 
@@ -107,6 +194,11 @@
 
 
     </form>
+    {{NAME_}}
+    {{collect}}
+    {{MEMBERID}}
+    {{ID_}}
+    {{DOB}}
 </div>
 </body>
 </html>

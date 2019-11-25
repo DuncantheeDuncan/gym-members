@@ -2,7 +2,7 @@ package assignment;
 import static spark.Spark.port;
 import static spark.Spark.staticFiles;
 
-public class Run {
+public class  Run {
 
 
     public static void main(String[] args) {

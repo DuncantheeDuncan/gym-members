@@ -5,6 +5,7 @@ import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,16 +48,9 @@ HashMap<String , Object> gymMap = new HashMap<>();
      final String SQL_TABLE_DROP_TABLEMEMBER = "DROP TABLE IF EXISTS TABLEMEMBER, TABLEPAYMENT CASCADE ";
      final String SQL_UPDATE= "UPDATEe TABLEMEMBER";
 
-final String GREET_DATABASE_URL = "jdbc:h2:~/GymMembers";
-     PreparedStatement inserDetailsToTheDbPreparedStatement;
+final String GREET_DATABASE_URL = /*"jdbc:h2:~/GymMembers"*/ "jdbc:postgresql://127.0.0.1:5432/gymdb";
 
-//
-//    UPDATE product
-//    SET net_price = price - price * discount
-//    FROM
-//            product_segment
-//    WHERE
-//    product.segment_id = product_segment.id;
+
 
     public void runMethod(){
 
@@ -64,8 +58,8 @@ final String GREET_DATABASE_URL = "jdbc:h2:~/GymMembers";
         get("/details", (req, res) -> {
 
             HashMap<String , Object> gymMap = new HashMap<>();
-            
-            try (Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") /* Connection conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/gymdb","coder","pg123")*/;
+
+            try  (/*Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") */ Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"coder","pg123");
                  Statement statement = conn.createStatement();
              PreparedStatement psinsert = conn.prepareStatement(SQL_INSERT_TABLEMEMBER);
                  PreparedStatement psinsert2 = conn.prepareStatement(SQL_INSERT_TABLEPAYMENT);
@@ -78,14 +72,11 @@ final String GREET_DATABASE_URL = "jdbc:h2:~/GymMembers";
                }else {
                     System.out.println("Failed to make connection to the DATABASE!");
                 }
-
 //
 //                statement.execute(SQL_TABLE_DROP_TABLEMEMBER); //JUST TO CLEAN THE DATABASE
 //                        statement.execute(SQL_TABLE_DROP_TABLEPAYMENT);
 //                        statement.execute(SQL_TABLE_CREATE_TABLEMEMBER);
 //                        statement.execute(SQL_TABLE_CREATE_TABLEPAYMENT);
-
-
 
 
             }catch (SQLException e) {
@@ -118,6 +109,10 @@ final String GREET_DATABASE_URL = "jdbc:h2:~/GymMembers";
                    add_dateofbirth+=req.queryParams("element_9_2");
                    add_dateofbirth+=req.queryParams("element_9_3");
 
+                   // trying to get the last four digits
+           String lastFourDigits = add_dateofbirth.substring(add_dateofbirth.length() - 4);
+
+
             String add_payment_date = req.queryParams("element_99_1");
             add_payment_date+=req.queryParams("element_99_2");
             add_payment_date+=req.queryParams("element_99_3");
@@ -138,14 +133,19 @@ final String GREET_DATABASE_URL = "jdbc:h2:~/GymMembers";
 
             System.out.println(gymMap);
             list.add(gymMap);
+
             long id_number =Long.parseLong(add_id_number);
             long cell_number = Long.parseLong(add_cellphone_number);
             int dateOfBirth = Integer.parseInt(add_dateofbirth);
             int payment_date = Integer.parseInt(add_payment_date);
             int amount = Integer.parseInt(add_amount);
+            // still to add
+            int year = Integer.parseInt(lastFourDigits) - 2019;
+            int year2 = Calendar.getInstance().get(Calendar.YEAR);
+            System.out.println("last for digits " +lastFourDigits + " " +year+ " " +year2);
 
             Class.forName("org.h2.Driver");// reg jdbc drive
-            try  (Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") /* Connection conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/gymdb","coder","pg123")*/;
+            try  (/*Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") */ Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"coder","pg123");
                   Statement statement = conn.createStatement();
                   PreparedStatement psinsert = conn.prepareStatement(SQL_INSERT_TABLEMEMBER);
                   PreparedStatement psinsert2 = conn.prepareStatement(SQL_INSERT_TABLEPAYMENT);

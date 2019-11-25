@@ -21,6 +21,9 @@
 
  );
 
+
+
+
 -- The tblPayments table will be used to keep track of payments made by Members. PaymentID,
 --Date, Amount. The tblPayments should be related to tblMembers accordingly
 
