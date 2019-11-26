@@ -26,6 +26,7 @@ HashMap<String , Object> gymMap = new HashMap<>();
             .append("ID_ BIGINT,")
             .append("CONTACT BIGINT,")
             .append("DATEOFBIRTH integer,")
+            .append("AGE integer,")
             .append("DATEJOINED DATE NOT NULL DEFAULT CURRENT_DATE,")
             .append("MEMEMBERTYPE VARCHAR(15)")
             .append(")")
@@ -42,11 +43,11 @@ HashMap<String , Object> gymMap = new HashMap<>();
             .toString();
 
 
-     final String SQL_INSERT_TABLEMEMBER = "INSERT INTO TABLEMEMBER ( NAME_, SURNAME, ID_, CONTACT, DATEOFBIRTH, MEMEMBERTYPE ) VALUES (?,?,?,?,?,?)";
+     final String SQL_INSERT_TABLEMEMBER = "INSERT INTO TABLEMEMBER ( NAME_, SURNAME, ID_, CONTACT, DATEOFBIRTH,AGE, MEMEMBERTYPE ) VALUES (?,?,?,?,?,?,?)";
      final String SQL_INSERT_TABLEPAYMENT = "INSERT INTO TABLEPAYMENT ( AMOUNT, PAYMENTDATE ) VALUES (?,?)";
 
      final String SQL_TABLE_DROP_TABLEMEMBER = "DROP TABLE IF EXISTS TABLEMEMBER, TABLEPAYMENT CASCADE ";
-     final String SQL_UPDATE= "UPDATEe TABLEMEMBER";
+     final String SQL_UPDATE= "UPDATE TABLEMEMBER";
 
 final String GREET_DATABASE_URL = /*"jdbc:h2:~/GymMembers"*/ "jdbc:postgresql://127.0.0.1:5432/gymdb";
 
@@ -120,6 +121,24 @@ final String GREET_DATABASE_URL = /*"jdbc:h2:~/GymMembers"*/ "jdbc:postgresql://
 //                   add_amount += req.queryParams("element_6_2");
 
 
+// age
+            int year2 = Calendar.getInstance().get(Calendar.YEAR);
+            int year = Integer.parseInt(lastFourDigits) - year2;
+
+
+            long id_number =Long.parseLong(add_id_number);
+            long cell_number = Long.parseLong(add_cellphone_number);
+            int dateOfBirth = Integer.parseInt(add_dateofbirth);
+            int payment_date = Integer.parseInt(add_payment_date);
+            int amount = Integer.parseInt(add_amount);
+            int balance = 0;
+//            if (add_membership_type.equals("Monthly")){
+//                 balance = 1500;
+//            }else if(add_membership_type.equals("Annual")){
+//                 balance = 5000;
+//            }
+
+            int amount_due = 0;
 
 
             gymMap.put("surname",add_surname);
@@ -130,19 +149,16 @@ final String GREET_DATABASE_URL = /*"jdbc:h2:~/GymMembers"*/ "jdbc:postgresql://
             gymMap.put("dateOfBirth",add_dateofbirth);
             gymMap.put("payment_date",add_payment_date);
             gymMap.put("amount",add_amount);
+            gymMap.put("age",year);
 
             System.out.println(gymMap);
             list.add(gymMap);
 
-            long id_number =Long.parseLong(add_id_number);
-            long cell_number = Long.parseLong(add_cellphone_number);
-            int dateOfBirth = Integer.parseInt(add_dateofbirth);
-            int payment_date = Integer.parseInt(add_payment_date);
-            int amount = Integer.parseInt(add_amount);
-            // still to add
-            int year = Integer.parseInt(lastFourDigits) - 2019;
-            int year2 = Calendar.getInstance().get(Calendar.YEAR);
-            System.out.println("last for digits " +lastFourDigits + " " +year+ " " +year2);
+
+
+
+
+
 
             Class.forName("org.h2.Driver");// reg jdbc drive
             try  (/*Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"sa","") */ Connection conn = DriverManager.getConnection(GREET_DATABASE_URL,"coder","pg123");
@@ -158,10 +174,9 @@ final String GREET_DATABASE_URL = /*"jdbc:h2:~/GymMembers"*/ "jdbc:postgresql://
                 }
 
 
-                        // statement.execute(SQL_TABLE_DROP_TABLEMEMBER); //JUST TO CLEAN THE DATABASE
-//                        statement.execute(SQL_TABLE_DROP_TABLEPAYMENT);
-                        // statement.execute(SQL_TABLE_CREATE_TABLEMEMBER);
-                        // statement.execute(SQL_TABLE_CREATE_TABLEPAYMENT);
+                         statement.execute(SQL_TABLE_DROP_TABLEMEMBER); //JUST TO CLEAN THE DATABASE
+                         statement.execute(SQL_TABLE_CREATE_TABLEMEMBER);
+                         statement.execute(SQL_TABLE_CREATE_TABLEPAYMENT);
 
                        
 
@@ -170,14 +185,15 @@ final String GREET_DATABASE_URL = /*"jdbc:h2:~/GymMembers"*/ "jdbc:postgresql://
                 psinsert.setLong(3, id_number);
                 psinsert.setLong(4, cell_number);
                 psinsert.setInt(5, dateOfBirth);
-                psinsert.setString(6, add_membership_type);
+                psinsert.setInt(6,year);
+                psinsert.setString(7, add_membership_type);
                 psinsert.execute();
 
 //                INSERT INTO TABLEPAYMENT ( AMOUNT, PAYMENTDATE ) VALUES (?,?)";
 //                int payment_date = Integer.parseInt(add_payment_date);
 //                float amount = Float.parseFloat(add_amount);
-                psinsert2.setInt(1,payment_date);
-                psinsert2.setInt(2,amount);
+                psinsert2.setInt(1, amount);
+                psinsert2.setInt(2,payment_date);
                 psinsert2.execute();
 
 

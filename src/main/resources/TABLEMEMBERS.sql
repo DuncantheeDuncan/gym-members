@@ -7,6 +7,7 @@
             ID_ BIGINT,
             CONTACT BIGINT,
             DATEOFBIRTH integer,
+            AGE integer,
             DATEJOINED DATE NOT NULL DEFAULT CURRENT_DATE,
             MEMEMBERTYPE VARCHAR(15)
 
