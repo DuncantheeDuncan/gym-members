@@ -14,44 +14,6 @@
 
     <script src="js/index.js" type="text/javascript"></script>
     <title>list</title>
-
-    <script type="text/javascript">
-    $(function () {
-        $("#table_cell").click(function () {
-            if ($(this).is(":checked")) {
-              $("#default_admin_page_for_students").hide();
-               $("#admin_page_for_students_after_search").show();
-            }else {
-                 $("#admin_page_for_students_after_search").hide();
-                  $("#default_admin_page_for_students").show();
-            }
-
-        });
-
-    });
-
-
-  </script>
-
-    <script type="text/javascript">
-    $(function () {
-        $("#table_cell_back").click(function () {
-            if ($(this).is(":checked")) {
-              $("#default_admin_page_for_students").show();
-               $("#admin_page_for_students_after_search").hide();
-
-            }else {
-                 $("#admin_page_for_students_after_search").hide();
-                  $("#default_admin_page_for_students").show();
-            }
-
-        });
-
-    });
-
-
-  </script>
-
 </head>
 
 <body id="main_body" class="safari">
@@ -67,8 +29,6 @@
 
             <!--    default screen -->
             <div id="default_admin_page_for_students" >
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for a name..">
-
 
                 <table id="myTable">
                     <tr class="header">
@@ -82,8 +42,6 @@
                         <th style="width:auto;">Amount Paid</th>
                         <th style="width:auto;">Balance</th>
                     </tr>
-
-
                    <tr>
 
                        <td>
@@ -136,7 +94,7 @@
 
                            <ul>
                                {{#each Amount_due}}
-                                   <li>{{this}}</li>
+                                   <li>R{{this}}</li>
                                {{/each}}
                            </ul>
                        </td>
@@ -144,7 +102,7 @@
 
                            <ul>
                                {{#each Amount_paid}}
-                                   <li>{{this}}</li>
+                                   <li>R{{this}}</li>
                                {{/each}}
                            </ul>
                        </td>
@@ -152,53 +110,16 @@
 
                            <ul>
                                {{#each balance}}
-                                   <li>{{this}}</li>
+                                   <li>R{{this}}</li>
                                {{/each}}
                            </ul>
                        </td>
                    </tr>
-
-
-<!--                    {{#each orderIds}}-->
-<!--                        <tr>-->
-<!--                            <td>-->
-<!--                                <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
-<!--                                {{this}}-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                    {{/each}}-->
-<!--                    <tr>-->
-<!--                        <td>-->
-<!--                            <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
-<!--                            {{this}}-->
-<!--                        </td>-->
-
-
-
-                    <!--                            <td>-->
-                    <!--                                <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
-                    <!--                                {{this}}-->
-                    <!--                            </td>-->
-                    <!--                            <td>-->
-                    <!--                                <label class="mains"><a class="main" href="/details/{{this}}"><span class="geekmark"></span></a></label>-->
-                    <!--                                {{this}}-->
-                    <!--                            </td>-->
-
-
-
-
                 </table>
 
             </div>
         </ul>
-
-
     </form>
-    {{NAME_}}
-    {{collect}}
-    {{MEMBERID}}
-    {{ID_}}
-    {{DOB}}
 </div>
 </body>
 </html>
