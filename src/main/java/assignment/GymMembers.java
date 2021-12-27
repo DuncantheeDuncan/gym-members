@@ -40,10 +40,9 @@ HashMap<String , Object> gymMap = new HashMap<>();
             .append(")")
             .toString();
 
-
+// queries!!!
      final String SQL_INSERT_TABLEMEMBER = "INSERT INTO TABLEMEMBER ( NAME_, SURNAME, ID_, CONTACT, DATEOFBIRTH, MEMEMBERTYPE ) VALUES (?,?,?,?,?,?)";
      final String SQL_INSERT_TABLEPAYMENT = "INSERT INTO TABLEPAYMENT ( AMOUNT, PAYMENTDATE ) VALUES (?,?)";
-
      final String SQL_TABLE_DROP_TABLEMEMBER = "DROP TABLE IF EXISTS TABLEMEMBER, TABLEPAYMENT CASCADE ";
      final String SQL_UPDATE= "UPDATEe TABLEMEMBER";
 
